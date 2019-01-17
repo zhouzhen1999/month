@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./fonts/iconfont.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <input type="text" placeholder="羽毛服" id="inp">
+            <button id="search">搜索</button>
+        </header>
+        <section>
+            <div class="list">
+                <span class="active">全部</span>
+                <span>天猫</span>
+                <span>店铺</span>
+                <span>淘宝经验</span>
+            </div>
+
+            <div class="list-main">
+                <span id="types">综合</span>
+                <span data-type="sale" id="sales">销量</span>
+                <span>视频</span>
+            </div>
+
+            <div class="types">
+                <p data-type="asc">价格由高到低</p>
+                <p data-type="desc">价格由低到高</p>
+                <p data-type="credits">信用由高到低</p>
+                <p data-type="credit">信用由低到高</p>
+            </div>
+
+            <div class="wrapper">
+                <div class="main" up="上拉加载">
+                    <!-- <dl>
+                        <dt><img src="./images/1.jpg" alt=""></dt>
+                        <dd>
+                            <p>福建水电费水电费</p>
+                            <p><span>申请退款</span><span>信用:2</span></p>
+                            <p><b>$34</b><span>323付款</span></p>
+                        </dd>
+                    </dl> -->
+                </div>
+            </div>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+<script src="./js/libs/require.js" defer async="true" data-main="./js/page/index.js"></script>
+
+</html>

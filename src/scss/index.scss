@@ -1,0 +1,194 @@
+@charset "utf-8";
+html {
+    font-size: 100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-size: .14rem;
+    font-famliy: "微软雅黑";
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+button,
+textarea,
+select,
+input {
+    appearance: none;
+}
+
+a {
+    top-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin num($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+$bg:background;
+@font-face {
+    font-family: "iconfont";
+    src: url('../fonts1/iconfont.eot?t=1476059862');
+    /* IE9*/
+    src: url('../fonts1/iconfont.eot?t=1476059862#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts1/iconfont.woff?t=1476059862') format('woff'), /* chrome, firefox */
+    url('../fonts1/iconfont.ttf?t=1476059862') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../fonts1/iconfont.svg?t=1476059862#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap {
+    @include num(100%,
+    100%);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+header {
+    @include num(100%,
+    .3rem);
+    input {
+        @include num(3rem,
+        .3rem);
+        border: 0;
+        outline: none;
+        border-radius: 5px;
+        text-indent: .3rem;
+        background: #eee;
+    }
+    button {
+        padding: .02rem .15rem;
+        border-radius: 5px;
+    }
+}
+
+section {
+    flex: 1;
+}
+
+.list {
+    @include num(100%,
+    .3rem);
+    display: flex;
+    justify-content: space-between;
+    padding: .1rem .15rem;
+    span {
+        padding-bottom: .25rem;
+        &.active {
+            color: #FF797D;
+            border-bottom: 1px solid #FF797D;
+        }
+    }
+}
+
+.list-main {
+    @include num(100%,
+    .3rem);
+    display: flex;
+    justify-content: space-between;
+    padding: .2rem .15rem;
+}
+
+.types {
+    @include num(100%,
+    auto);
+    margin-left: .2rem;
+    background: #fff;
+    position: absolute;
+    z-index: 99;
+    display: none;
+    p {
+        margin-top: .2rem;
+    }
+}
+
+.wrapper {
+    @include num(100%,
+    5rem);
+    overflow: hidden;
+}
+
+.main {
+    @include num(100%,
+    auto);
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: .2rem .15rem;
+    position: relative;
+    dl {
+        @include num(47%,
+        auto);
+        margin-left: .1rem;
+        margin-top: .1rem;
+        dt {
+            img {
+                @include num(1.5rem,
+                200px);
+                border-radius: 3px;
+            }
+        }
+        dd {
+            margin-left: .2rem;
+            p {
+                line-height: 1.5;
+                &:nth-of-type(1) {
+                    color: #666;
+                    font-size: .16rem;
+                }
+                &:nth-of-type(2) {
+                    color: #FF797D;
+                    font-size: .16rem;
+                    display: flex;
+                    justify-content: space-around;
+                }
+                &:nth-of-type(3) {
+                    display: flex;
+                    color: #666;
+                    justify-content: space-around;
+                    b {
+                        color: #FF797D;
+                        font-size: .18rem;
+                    }
+                }
+            }
+        }
+    }
+    &:after {
+        content: attr(up);
+        @include num(100%,
+        .3rem);
+        text-align: center;
+        line-height: .3rem;
+        color: #fff;
+        background: red;
+        position: absolute;
+        left: 0;
+        bottom: -.4rem;
+    }
+}
