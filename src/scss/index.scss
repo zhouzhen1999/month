@@ -133,7 +133,7 @@ section {
     overflow: hidden;
 }
 
-.main {
+#main {
     @include num(100%,
     auto);
     min-height: 100%;
@@ -190,5 +190,43 @@ section {
         position: absolute;
         left: 0;
         bottom: -.4rem;
+    }
+    &.table {
+        dl {
+            @include num(100%,
+            100%);
+            display: flex;
+            dt {
+                @include num(1.3rem,
+                1.5rem);
+                img {
+                    @include num(100%,
+                    100%);
+                }
+            }
+            dd {
+                p {
+                    line-height: 3;
+                }
+            }
+        }
+    }
+}
+
+.nav {
+    margin-top: .1rem;
+    @include num(100,
+    1rem);
+    background: #ccc;
+    overflow: hidden;
+    span {
+        border: 1px solid #f554f5;
+        border-radius: 5px;
+        padding: .01rem .1rem;
+        margin-left: .1rem;
+        &.color {
+            background: #fff;
+            color: #f554f5;
+        }
     }
 }

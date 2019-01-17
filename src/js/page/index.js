@@ -22,23 +22,23 @@ require(["./js/config.js"], function() {
             scroll.on("scroll", function(position) {
                 if (position.y < this.maxScrollY - 44) {
                     if (page < total) {
-                        $(".main").attr("up", "释放加载更多")
+                        $("#main").attr("up", "释放加载更多")
                     } else {
-                        $(".main").attr("up", "没有更多数据")
+                        $("#main").attr("up", "没有更多数据")
                     }
                 } else if (position.y < this.maxScrollY - 22) {
                     if (page < total) {
-                        $(".main").attr("up", "上拉加载")
+                        $("#main").attr("up", "上拉加载")
                     } else {
-                        $(".main").attr("up", "没有更多数据")
+                        $("#main").attr("up", "没有更多数据")
                     }
                 } else {
-                    $(".main").attr("up", "上拉加载")
+                    $("#main").attr("up", "上拉加载")
                 }
             })
 
             scroll.on("touchEnd", function() {
-                if ($(".main").attr("up") == "释放加载更多") {
+                if ($("#main").attr("up") == "释放加载更多") {
                     if (page < total) {
                         page++;
                         ajax();
@@ -80,7 +80,7 @@ require(["./js/config.js"], function() {
                             </dd>
                         </dl>`;
             })
-            $(".main").append(str);
+            $("#main").append(str);
             scroll.refresh();
         }
 
@@ -91,24 +91,52 @@ require(["./js/config.js"], function() {
             $(".types").on("click", "p", function() {
                 page = 1;
                 $(".types").hide();
-                $(".main").html("");
+                $("#main").html("");
                 type = $(this).attr("data-type");
                 ajax()
             })
 
             $("#sales").on("click", function() {
                 page = 1;
-                $(".main").html("");
+                $("#main").html("");
                 type = $(this).attr("data-type");
                 ajax()
 
             })
 
+            var arr = JSON.parse(localStorage.getItem("arr")) || [];
+            var html = "";
+            arr.forEach((i) => {
+                html += `<span>${i}</span>`;
+            })
+            $(".nav").html(html);
+
+            $(".nav").on("click", "span", function() {
+                var test = $(this).html();
+                $("#inp").val(test);
+                $(this).addClass("color").siblings().removeClass("color")
+            })
             $("#search").on("click", function() {
                 page = 1;
                 key = $("#inp").val();
-                $(".main").html("");
-                ajax()
+                $("#inp").val("");
+
+                var status = arr.some((i) => {
+                    return i == key
+                })
+                if (!status) {
+                    arr.push(key);
+                    localStorage.setItem("arr", JSON.stringify(arr))
+                }
+
+                $("#main").html("");
+                ajax();
+
+            })
+
+
+            $("#tabs").on("click", function() {
+                $("#main").toggleClass("table")
             })
         }
 
